@@ -29,7 +29,7 @@ export default function HeroSection() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-[Poppins] text-base font-medium text-white hover:bg-black">
+              <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-sans text-base font-medium text-white hover:bg-black">
                 Inizia gratis
                 <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:-mr-1 group-hover:ml-3" />
               </Button>
