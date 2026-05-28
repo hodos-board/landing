@@ -130,8 +130,6 @@ export default function InteractiveDemo() {
 
   return (
     <Card className="relative overflow-hidden rounded-[36px] border border-black/5 bg-white/90 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.08)] transition-all">
-      <div className="absolute top-0 right-0 h-[240px] w-[240px] rounded-full bg-[#6F3BFF]/10 blur-3xl" />
-
       <div className="mb-8 flex items-center justify-between">
         <div>
           <p className="font-[Lora] text-2xl font-semibold">Prova Live</p>
@@ -226,9 +224,9 @@ export default function InteractiveDemo() {
 
             <Button
               type="submit"
-              className="flex items-center gap-2 rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white px-5"
+              className="group flex items-center gap-2 rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white px-5"
             >
-              <span>Invia alla board</span>
+              <span>Invia</span>
               <Send className="h-4 w-4" />
             </Button>
           </div>
