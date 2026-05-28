@@ -1,0 +1,72 @@
+import { ArrowRight, CircleDot, Play } from "lucide-react";
+import InteractiveDemo from "./InteractiveDemo";
+import { Button } from "@/components/ui/button";
+
+export default function HeroSection() {
+  return (
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-20">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div>
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#6F3BFF]/20 bg-[#6F3BFF]/5 px-4 py-2">
+              <CircleDot className="h-3 w-3 animate-pulse fill-[#6F3BFF] text-[#6F3BFF]" />
+              <span className="font-[Poppins] text-xs font-semibold tracking-[0.04em] text-[#6F3BFF] uppercase">
+                Feedback per builder indipendenti
+              </span>
+            </div>
+
+            <h1 className="max-w-[700px] font-[Lora] text-7xl leading-[0.98] tracking-[-0.04em]">
+              Trasforma feedback sparsi <br /> in decisioni chiare,
+              <span className="text-[#6F3BFF] italic"> ogni settimana.</span>
+            </h1>
+
+            <div className="mt-4 mb-10 h-[6px] w-[220px] rounded-full bg-[#FFD84D]" />
+
+            <p className="max-w-xl font-[Poppins] text-xl leading-relaxed text-black/70">
+              Raccogli bug, suggerimenti e segnali dalla tua community.
+              Raggruppiamo, analizziamo e trasformiamo il rumore in priorità
+              concrete.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-[Poppins] text-base font-medium text-white hover:bg-black">
+                Inizia gratis
+                <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:-mr-1 group-hover:ml-3" />
+              </Button>
+
+              <Button
+                variant="outline"
+                className="h-14 rounded-2xl border-black/10 bg-white px-8 font-[Poppins] text-base font-medium"
+              >
+                <Play className="mr-2 h-4 w-4 fill-black" />
+                Vedi come funziona
+              </Button>
+            </div>
+
+            <div className="mt-10 flex items-center gap-5">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((item) => (
+                  <div
+                    key={item}
+                    className="h-11 w-11 rounded-full border-2 border-[#f6f3ee] bg-neutral-300"
+                  />
+                ))}
+              </div>
+
+              <div>
+                <p className="font-[Poppins] font-medium">
+                  Usato da 1.200+ builder
+                </p>
+                <p className="font-[Poppins] text-sm text-black/60">
+                  in tutto il mondo
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <InteractiveDemo />
+        </div>
+      </div>
+    </section>
+  );
+}
