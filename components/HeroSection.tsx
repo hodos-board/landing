@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="relative">
+    <section className="relative pt-16">
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-20">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div>
