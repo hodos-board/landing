@@ -6,7 +6,8 @@ import {
   AlertCircle,
   Lightbulb,
   ChevronDown,
-  Heart,
+  ArrowUp,
+  Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -20,12 +21,11 @@ interface CommentItem {
   text: string;
   type: CommentType;
   author: string;
-  likes: number;
-  hasLiked: boolean;
+  likes: number; // Utilizzato come contatore di upvote fisici
+  hasLiked: boolean; // Indica se è stato premuto almeno una volta per lo stato attivo visivo
   avatarBg: string;
 }
 
-// Lista di nomi casuali per simulare utenti reali
 const RANDOM_NAMES = [
   "Alessandro M.",
   "Elena R.",
@@ -39,7 +39,6 @@ const RANDOM_NAMES = [
   "Alice P.",
 ];
 
-// Palette di colori pastello per gli avatar degli utenti
 const AVATAR_COLORS = [
   "bg-[#6F3BFF]/20 text-[#6F3BFF]",
   "bg-[#FFD84D]/30 text-[#b59210]",
@@ -54,14 +53,13 @@ export default function InteractiveDemo() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<CommentType>("feedback");
 
-  // Lista iniziale dei commenti ordinati per Like
   const [comments, setComments] = useState<CommentItem[]>([
     {
       id: "1",
       text: "L'app crasha quando provo a esportare un CSV su mobile (Safari iOS).",
       type: "bug",
       author: "Matteo B.",
-      likes: 0,
+      likes: 24,
       hasLiked: false,
       avatarBg: "bg-[#6F3BFF]/20 text-[#6F3BFF]",
     },
@@ -70,7 +68,7 @@ export default function InteractiveDemo() {
       text: "Sarebbe fantastico avere un'integrazione diretta con Slack o Discord per i digest.",
       type: "feature",
       author: "Elena R.",
-      likes: 0,
+      likes: 18,
       hasLiked: false,
       avatarBg: "bg-[#00C26F]/20 text-[#00A55D]",
     },
@@ -79,18 +77,16 @@ export default function InteractiveDemo() {
       text: "La dashboard è pulita e velocissima, la UX sui filtri settimanali è pazzesca!",
       type: "feedback",
       author: "Alessandro M.",
-      likes: 0,
+      likes: 12,
       hasLiked: false,
       avatarBg: "bg-[#FFD84D]/30 text-[#b59210]",
     },
   ]);
 
-  // Funzione per inviare il feedback
   const handleSendFeedback = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputText.trim()) return;
 
-    // Seleziona autore e colore casuale
     const randomAuthor =
       RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)];
     const randomColor =
@@ -101,8 +97,8 @@ export default function InteractiveDemo() {
       text: inputText,
       type: selectedType,
       author: randomAuthor,
-      likes: 0, // Parte da 0 like
-      hasLiked: false,
+      likes: 1, // Parte direttamente con 1 upvote automatico del creatore
+      hasLiked: true,
       avatarBg: randomColor,
     };
 
@@ -111,15 +107,15 @@ export default function InteractiveDemo() {
     setInputText("");
   };
 
-  // Funzione per gestire il Toggle del Like
-  const handleLike = (id: string) => {
+  // Funzione cumulativa: permette upvote infiniti incrementando sempre di +1
+  const handleUpvote = (id: string) => {
     setComments((prevComments) =>
       prevComments.map((comment) => {
         if (comment.id === id) {
           return {
             ...comment,
-            likes: comment.hasLiked ? comment.likes - 1 : comment.likes + 1,
-            hasLiked: !comment.hasLiked,
+            likes: comment.likes + 1,
+            hasLiked: true, // Resta attivo/colorato dal primo click in poi
           };
         }
         return comment;
@@ -127,7 +123,6 @@ export default function InteractiveDemo() {
     );
   };
 
-  // Filtra e ordina i commenti per Like decrescenti
   const filteredAndSortedComments = comments
     .filter((c) => c.type === activeTab)
     .sort((a, b) => b.likes - a.likes);
@@ -145,7 +140,8 @@ export default function InteractiveDemo() {
             Prova Live
           </TextShimmer>
           <p className="mt-1 font-poppins text-sm text-black/60">
-            Invia un feedback reale e vota i migliori per scalarli in classifica
+            Invia un feedback reale e fai upvote ripetutamente per farlo salire
+            in tempo reale
           </p>
         </div>
       </div>
@@ -171,6 +167,15 @@ export default function InteractiveDemo() {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-2 rounded-xl bg-black/5 px-4 py-2 font-poppins text-sm text-black/70 transition hover:bg-black/10"
               >
+                {selectedType === "feedback" && (
+                  <MessageSquare className="h-4 w-4 text-[#6F3BFF]" />
+                )}
+                {selectedType === "bug" && (
+                  <AlertCircle className="h-4 w-4 text-[#6F3BFF]" />
+                )}
+                {selectedType === "feature" && (
+                  <Lightbulb className="h-4 w-4 text-[#6F3BFF]" />
+                )}
                 <span className="capitalize">
                   {selectedType === "feature"
                     ? "Feature Request"
@@ -182,7 +187,7 @@ export default function InteractiveDemo() {
               </button>
 
               {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 z-20 w-44 rounded-2xl border border-black/5 bg-white p-2 shadow-xl animate-fade-in font-poppins text-sm">
+                <div className="absolute left-0 mt-2 z-20 w-48 rounded-2xl border border-black/5 bg-white p-2 shadow-xl animate-in fade-in slide-in-from-top-1 duration-200 font-poppins text-sm">
                   {(["feedback", "bug", "feature"] as CommentType[]).map(
                     (type) => (
                       <button
@@ -192,13 +197,24 @@ export default function InteractiveDemo() {
                           setSelectedType(type);
                           setIsDropdownOpen(false);
                         }}
-                        className={`w-full rounded-xl px-3 py-2 text-left capitalize transition ${
+                        className={`flex items-center gap-2 w-full rounded-xl px-3 py-2 text-left capitalize transition ${
                           selectedType === type
                             ? "bg-[#6F3BFF]/10 text-[#6F3BFF] font-medium"
-                            : "hover:bg-black/5"
+                            : "hover:bg-black/5 text-black/70"
                         }`}
                       >
-                        {type === "feature" ? "Feature Request" : type}
+                        {type === "feedback" && (
+                          <MessageSquare className="h-4 w-4 shrink-0" />
+                        )}
+                        {type === "bug" && (
+                          <AlertCircle className="h-4 w-4 shrink-0" />
+                        )}
+                        {type === "feature" && (
+                          <Lightbulb className="h-4 w-4 shrink-0" />
+                        )}
+                        <span>
+                          {type === "feature" ? "Feature Request" : type}
+                        </span>
                       </button>
                     ),
                   )}
@@ -208,9 +224,10 @@ export default function InteractiveDemo() {
 
             <Button
               type="submit"
-              className="rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white"
+              className="flex items-center gap-2 rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white px-5"
             >
-              Invia alla board
+              <span>Invia alla board</span>
+              <Send className="h-4 w-4" />
             </Button>
           </div>
         </form>
@@ -245,10 +262,10 @@ export default function InteractiveDemo() {
             ))}
           </div>
 
-          {/* Lista Ordinata Dinamicamente */}
-          <div className="mt-4 space-y-2 max-h-50  pr-1  overflow-y-scroll">
+          {/* Lista Ordinata per Upvote */}
+          <div className="mt-4 space-y-2 max-h-50 pr-1 overflow-y-auto">
             {filteredAndSortedComments.length === 0 ? (
-              <p className="font-poppins text-sm text-black/40 italic py-8 text-center">
+              <p className="font-poppins text-sm text-black/40 italic py-8 text-center animate-in fade-in duration-300">
                 Nessun elemento presente in questa categoria. Scrivi il primo
                 qui sopra!
               </p>
@@ -256,10 +273,9 @@ export default function InteractiveDemo() {
               filteredAndSortedComments.map((comment) => (
                 <div
                   key={comment.id}
-                  className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-black/5 shadow-sm animate-scale-up transition-all duration-300"
+                  className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-black/5 shadow-sm transition-all duration-300 animate-in fade-in slide-in-from-top-3 duration-300"
                 >
                   <div className="flex items-start gap-3">
-                    {/* Immagine utente / Avatar con iniziale */}
                     <div
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-poppins text-sm font-bold shadow-inner ${comment.avatarBg}`}
                     >
@@ -281,22 +297,15 @@ export default function InteractiveDemo() {
                     </div>
                   </div>
 
-                  {/* Componente Like Interattivo */}
+                  {/* PULSANTE UPVOTE INTERATTIVO MULTI-CLICK */}
                   <button
                     type="button"
-                    onClick={() => handleLike(comment.id)}
-                    className={`flex flex-col sm:flex-row items-center gap-1 sm:gap-2 rounded-xl px-3 py-1.5 border transition active:scale-95 min-w-[54px] justify-center
-                      ${
-                        comment.hasLiked
-                          ? "border-red-100 bg-red-50 text-red-500 font-semibold"
-                          : "border-black/5 bg-black/[0.02] text-black/40 hover:text-red-500 hover:bg-red-50/50"
-                      }
-                    `}
+                    onClick={() => handleUpvote(comment.id)}
+                    className="flex flex-row items-center gap-1.5 rounded-xl px-3 h-9 border transition-all duration-200 w-14 justify-center select-none shrink-0
+                      active:scale-95 active:bg-[#6F3BFF]/5 group"
                   >
-                    <Heart
-                      className={`h-4 w-4 transition-transform duration-200 ${comment.hasLiked ? "fill-red-500 scale-110" : ""}`}
-                    />
-                    <span className="font-poppins text-xs">
+                    <ArrowUp className="h-4 w-4 shrink-0 transition-transform duration-200 " />
+                    <span className="font-poppins text-xs tabular-nums leading-none">
                       {comment.likes}
                     </span>
                   </button>
