@@ -60,7 +60,7 @@ export default function SubscribePage() {
                 </span>
               </div>
 
-              <h1 className="font-lora text-4xl sm:text-5xl leading-[1.1] tracking-[-0.03em]">
+              <h1 className="font-[Lora] text-4xl sm:text-5xl leading-[1.1] tracking-[-0.03em]">
                 Diventa un{" "}
                 <span className="text-[#6F3BFF] italic">Beta Builder</span>.
               </h1>

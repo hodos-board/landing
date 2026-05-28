@@ -15,7 +15,7 @@ export default function Navbar() {
       */}
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-black/5 bg-[#f6f3ee]/40 px-6 shadow-lg shadow-black/5 backdrop-blur-xl">
         {/* Logo */}
-        <Link href="#">
+        <Link href="#" className="active:scale-[0.99] transition-all">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-black font-serif font-semibold text-white">
               F/
@@ -28,25 +28,37 @@ export default function Navbar() {
 
         {/* Links di Navigazione */}
         <nav className="hidden items-center gap-10 text-sm font-medium md:flex font-poppins">
-          <Link href="#features" className="transition hover:opacity-60">
+          <Link
+            href="#features"
+            className="transition hover:opacity-60 active:scale-[0.98]"
+          >
             Funzionalità
           </Link>
-          <Link href="#pricing" className="transition hover:opacity-60">
+          <Link
+            href="#pricing"
+            className="transition hover:opacity-60 active:scale-[0.98]"
+          >
             Prezzi
           </Link>
-          <Link href="#changelog" className="transition hover:opacity-60">
+          <Link
+            href="#changelog"
+            className="transition hover:opacity-60 active:scale-[0.98]"
+          >
             Changelog
           </Link>
-          <Link href="#resources" className="transition hover:opacity-60">
+          <Link
+            href="#resources"
+            className="transition hover:opacity-60 active:scale-[0.98]"
+          >
             Risorse
           </Link>
         </nav>
 
         {/* Pulsanti di Azione */}
         <div className="flex items-center gap-4">
-          <button className="hidden text-sm font-medium md:block font-poppins">
+          <Button variant="ghost" className="hover:bg-transparent">
             Accedi
-          </button>
+          </Button>
 
           <Link href="/subscribe">
             <Button className="group h-12 rounded-2xl bg-[#111111] px-6 text-white hover:bg-black font-poppins">
