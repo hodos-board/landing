@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { TextShimmer } from "@/components/motion-primitives/text-shimmer";
+import { TextShimmerWave } from "./motion-primitives/text-shimmer-wave";
 
 type CommentType = "feedback" | "bug" | "feature";
 
@@ -133,16 +134,17 @@ export default function InteractiveDemo() {
 
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <TextShimmer
-            duration={1.5}
-            className="font-poppins text-2xl font-semibold"
+          <p className="font-[Lora] text-2xl font-semibold">Prova Live</p>
+          <TextShimmerWave
+            duration={1}
+            spread={1}
+            zDistance={3}
+            scaleDistance={1.1}
+            rotateYDistance={10}
+            className="mt-1 font-[Poppins] text-sm [--base-color:oklch(0.556 0 0)] [--base-gradient-color:oklch(0.708 0 0)]"
           >
-            Prova Live
-          </TextShimmer>
-          <p className="mt-1 font-poppins text-sm text-black/60">
-            Invia un feedback reale e fai upvote ripetutamente per farlo salire
-            in tempo reale
-          </p>
+            Invia un feedback reale e fai upvote ripetutamente...
+          </TextShimmerWave>
         </div>
       </div>
 
