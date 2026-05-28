@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={`${poppins.variable} ${lora.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased scroll-smooth">{children}</body>
     </html>
   );
 }

@@ -15,7 +15,7 @@ export default function Navbar() {
       */}
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-black/5 bg-[#f6f3ee]/40 px-6 shadow-lg shadow-black/5 backdrop-blur-xl">
         {/* Logo */}
-        <Link href="#" className="active:scale-[0.99] transition-all">
+        <Link href="/" className="active:scale-[0.99] transition-all">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-black font-serif font-semibold text-white">
               F/

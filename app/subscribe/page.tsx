@@ -54,7 +54,7 @@ export default function SubscribePage() {
           {status !== "success" && (
             <div className="animate-fade-in">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#6F3BFF]/20 bg-[#6F3BFF]/5 px-4 py-2">
-                <Sparkles className="h-3 w-3 text-[#6F3BFF]" />
+                <Sparkles className="h-3 w-3 text-[#6F3BFF] animate-pulse" />
                 <span className="font-poppins text-xs font-semibold tracking-[0.04em] text-[#6F3BFF] uppercase">
                   Accesso Anticipato Esclusivo
                 </span>

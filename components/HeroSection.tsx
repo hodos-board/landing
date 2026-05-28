@@ -1,6 +1,7 @@
 import { ArrowRight, CircleDot, Play } from "lucide-react";
 import InteractiveDemo from "./InteractiveDemo";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -15,24 +16,25 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="max-w-[700px] font-[Lora] text-7xl leading-[0.98] tracking-[-0.04em]">
-              Trasforma feedback sparsi <br /> in decisioni chiare,
-              <span className="text-[#6F3BFF] italic"> ogni settimana.</span>
+            <h1 className="max-w-175 font-[Lora] text-7xl leading-[0.98] tracking-[-0.04em]">
+              Trasforma feedback sparsi <br /> in{" "}
+              <span className="text-[#6F3BFF] italic">decisioni chiare</span>,
+              ogni settimana.
             </h1>
 
-            <div className="mt-4 mb-10 h-[6px] w-[220px] rounded-full bg-[#FFD84D]" />
-
-            <p className="max-w-xl font-[Poppins] text-xl leading-relaxed text-black/70">
+            <p className="max-w-xl font-[Poppins] text-xl leading-relaxed text-black/70 mt-6">
               Raccogli bug, suggerimenti e segnali dalla tua community.
               Raggruppiamo, analizziamo e trasformiamo il rumore in priorità
               concrete.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-sans text-base font-medium text-white hover:bg-black">
-                Inizia gratis
-                <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:-mr-1 group-hover:ml-3" />
-              </Button>
+              <Link href="/subscribe">
+                <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-sans text-base font-medium text-white hover:bg-black">
+                  Inizia gratis
+                  <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:-mr-1 group-hover:ml-3" />
+                </Button>
+              </Link>
 
               <Button
                 variant="outline"
