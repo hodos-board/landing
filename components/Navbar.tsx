@@ -16,11 +16,10 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-black/5 bg-[#f6f3ee]/40 px-6 shadow-lg shadow-black/5 backdrop-blur-xl">
         {/* Logo */}
         <Link href="/" className="active:scale-[0.99] transition-all">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-black font-serif font-semibold text-white">
-              F/
-            </div>
-            <span className="font-serif text-2xl font-semibold tracking-tight">
+          <div className="flex items-center gap-5">
+            <img src="/hodos_logo_dark_96x96.svg" className="h-9 w-9" />
+            <img src="/hodos_logotype.svg" className="h-6" />
+            <span className="hidden font-serif text-2xl font-semibold tracking-tight">
               FocusPilot
             </span>
           </div>

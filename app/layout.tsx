@@ -6,7 +6,7 @@ import "./globals.css"; // Assicurati che il percorso sia corretto
 // Configura il font Poppins
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "600", "700"],
   variable: "--font-poppins", // Definisce la variabile CSS
 });
 
@@ -18,7 +18,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "FocusPilot - Trasforma i feedback in decisioni",
+  title: "Hodos - Trasforma i feedback in decisioni",
   description: "Feedback per builder indipendenti",
 };
 
