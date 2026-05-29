@@ -4,6 +4,7 @@ import StatsSection from "@/components/StatsSection";
 import ProblemSolutionSection from "@/components/ProblemSolutionSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import CTASection from "@/components/CTASection";
+import PricingSection from "@/components/Pricing";
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
       <ProblemSolutionSection />
 
       <FeaturesSection />
+
+      <PricingSection />
 
       <CTASection />
     </main>
