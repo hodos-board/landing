@@ -17,8 +17,8 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="active:scale-[0.99] transition-all">
           <div className="flex items-center gap-5">
-            <img src="/hodos_logo_dark_96x96.svg" className="h-9 w-9" />
-            <img src="/hodos_logotype.svg" className="h-6" />
+            <img src="/hodos_logo_dark.svg" className="hidden h-9 w-9" />
+            <img src="/hodos_logotype_light.svg" className="h-6" />
             <span className="hidden font-serif text-2xl font-semibold tracking-tight">
               FocusPilot
             </span>
