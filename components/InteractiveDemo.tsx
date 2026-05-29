@@ -132,14 +132,16 @@ export default function InteractiveDemo() {
     <Card className="relative overflow-hidden rounded-[36px] border border-black/5 bg-white/90 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.08)] transition-all">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <p className="font-[Lora] text-2xl font-semibold">Prova Live</p>
+          <p className="font-[Poppins] text-2xl tracking-[-0.02em]">
+            Prova Live
+          </p>
           <TextShimmerWave
             duration={1}
             spread={1}
             zDistance={3}
             scaleDistance={1.1}
             rotateYDistance={10}
-            className="mt-1 font-[Poppins] text-sm [--base-color:oklch(0.556 0 0)] [--base-gradient-color:oklch(0.708 0 0)]"
+            className="mt-1 font-[Lora] text-sm [--base-color:oklch(0.556 0 0)] [--base-gradient-color:oklch(0.708 0 0)]"
           >
             Invia un feedback reale e fai upvote ripetutamente...
           </TextShimmerWave>
