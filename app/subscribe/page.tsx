@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import { TextMorph } from "torph/react";
 
 export default function SubscribePage() {
   const [email, setEmail] = useState("");
@@ -95,7 +96,7 @@ export default function SubscribePage() {
                   <Button
                     type="submit"
                     disabled={status === "loading"}
-                    className={`h-14 sm:h-12 rounded-xl px-6 font-poppins font-medium text-white transition-all duration-300 sm:w-auto w-full
+                    className={`h-14 sm:h-12 flex items-center justify-center gap-2 rounded-xl px-6 font-poppins font-medium text-white transition-all duration-300 sm:w-auto w-full
                       ${
                         status === "loading"
                           ? "bg-[#6F3BFF]/80 cursor-not-allowed scale-[0.98]"
@@ -104,16 +105,15 @@ export default function SubscribePage() {
                     `}
                   >
                     {status === "loading" ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <Loader2 className="h-4 w-4 animate-spin text-white" />
-                        Salvataggio...
-                      </span>
+                      <Loader2 className="h-4 w-4 animate-spin text-white" />
                     ) : (
-                      <span className="flex items-center justify-center gap-1 group">
-                        Assicura il mio sconto
-                        <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:translate-x-1" />
-                      </span>
+                      <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:translate-x-1" />
                     )}
+                    <TextMorph className="font-medium text-sm">
+                      {status === "loading"
+                        ? "Salvataggio..."
+                        : "Assicura il mio sconto"}
+                    </TextMorph>
                   </Button>
                 </div>
                 <p className="text-xs font-poppins text-black/40 text-center sm:text-left pl-2">

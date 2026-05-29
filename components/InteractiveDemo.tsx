@@ -16,6 +16,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { TextShimmer } from "@/components/motion-primitives/text-shimmer";
 import { TextShimmerWave } from "./motion-primitives/text-shimmer-wave";
+import { TextMorph } from "torph/react";
 
 type CommentType = "feedback" | "bug" | "feature";
 
@@ -234,19 +235,21 @@ export default function InteractiveDemo() {
 
             <Button
               type="submit"
+              disabled={status === "loading"}
               className="group rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white px-5"
             >
-              {status === "loading" ? (
-                <span className="flex items-center gap-2 ">
-                  Invio...
-                  <Loader2 className="h-4 w-4 animate-spin text-white" />
-                </span>
-              ) : (
-                <span className="flex items-center gap-2 ">
-                  Invia
-                  <Send className="h-4 w-4" />
-                </span>
-              )}
+              <TextMorph className="font-medium text-sm">
+                {status === "loading" ? "Invio..." : "Invia"}
+              </TextMorph>
+
+              {/* Contenitore delle icone con micro-transizione di opacità e posizione */}
+              <div className="relative w-4 h-4 flex items-center justify-center shrink-0">
+                {status === "loading" ? (
+                  <Loader2 className="absolute h-4 w-4 animate-spin text-white animate-in fade-in zoom-in-75 duration-200" />
+                ) : (
+                  <Send className="absolute h-4 w-4 text-white transition-transform  group-hover:rotate-45 group-active:translate-x-0.5  animate-in fade-in zoom-in-75 duration-200" />
+                )}
+              </div>
             </Button>
           </div>
         </form>
