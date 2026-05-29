@@ -187,10 +187,16 @@ export default function InteractiveDemo() {
                 {selectedType === "feature" && (
                   <Lightbulb className="h-4 w-4 text-[#6F3BFF]" />
                 )}
-                <span className="capitalize">
-                  {selectedType === "feature"
-                    ? "Feature Request"
-                    : selectedType}
+                <span>
+                  <TextMorph>
+                    {
+                      {
+                        feature: "Feature Request",
+                        bug: "Bug",
+                        feedback: "Feedback",
+                      }[selectedType]
+                    }
+                  </TextMorph>
                 </span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
