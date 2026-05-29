@@ -11,18 +11,17 @@ export default function HeroSection() {
           <div>
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#6F3BFF]/20 bg-[#6F3BFF]/5 px-4 py-2">
               <CircleDot className="h-3 w-3 animate-pulse fill-[#6F3BFF] text-[#6F3BFF]" />
-              <span className="font-[Poppins] text-xs font-semibold tracking-[0.04em] text-[#6F3BFF] uppercase">
+              <span className="font-[Poppins] text-xs font-semibold tracking-[0.06em] text-[#6F3BFF] uppercase">
                 Feedback per builder indipendenti
               </span>
             </div>
 
-            <h1 className="max-w-175 font-[Lora] text-7xl leading-[0.98] tracking-[-0.04em]">
-              Trasforma feedback sparsi <br /> in{" "}
-              <span className="text-[#6F3BFF] italic">decisioni chiare</span>,
-              ogni settimana.
+            <h1 className="max-w-175 font-[Poppins] font-light text-6xl leading-[1.08] tracking-[-0.04em]">
+              Trasforma feedback sparsi in <br />
+              <span className="text-[#6F3BFF] italic">decisioni chiare</span>
             </h1>
 
-            <p className="max-w-xl font-[Poppins] text-xl leading-relaxed text-black/70 mt-6">
+            <p className="max-w-xl font-[Lora] text-xl leading-relaxed text-black/70 mt-6">
               Raccogli bug, suggerimenti e segnali dalla tua community.
               Raggruppiamo, analizziamo e trasformiamo il rumore in priorità
               concrete.
@@ -30,7 +29,7 @@ export default function HeroSection() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/subscribe">
-                <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-sans text-base font-medium text-white hover:bg-black">
+                <Button className="group h-14 rounded-2xl bg-[#111111] px-8 font-sans text-base  text-white hover:bg-black">
                   Inizia gratis
                   <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:-mr-1 group-hover:ml-3" />
                 </Button>
