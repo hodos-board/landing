@@ -20,6 +20,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "Hodos - Trasforma i feedback in decisioni",
   description: "Feedback per builder indipendenti",
+  icons: "/hodos_logo_light.svg",
 };
 
 export default function RootLayout({
