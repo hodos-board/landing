@@ -17,7 +17,6 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="active:scale-[0.99] transition-all">
           <div className="flex items-center gap-5">
-            <img src="/hodos_logo_dark.svg" className="hidden h-9 w-9" />
             <img src="/hodos_logotype_light.svg" className="h-6" />
             <span className="hidden font-serif text-2xl font-semibold tracking-tight">
               FocusPilot
@@ -62,7 +61,7 @@ export default function Navbar() {
           <Link href="/subscribe">
             <Button className="group h-12 rounded-2xl bg-[#111111] px-6 text-white hover:bg-black font-poppins">
               Inizia gratis
-              <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:-mr-1 group-hover:ml-3" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-all group-hover:translate-x-0.5 group-active:translate-x-1" />
             </Button>
           </Link>
         </div>
