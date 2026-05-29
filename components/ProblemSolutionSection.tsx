@@ -7,26 +7,26 @@ export default function ProblemSolutionSection() {
             Il problema
           </div>
 
-          <h2 className="font-[Lora] text-6xl leading-[1] tracking-[-0.04em]">
+          <h2 className="font-[Poppins] text-6xl leading-[1.08] font-light tracking-[-0.04em]">
             Troppo rumore.
             <br />
             Nessun focus.
           </h2>
 
-          <p className="mt-8 max-w-lg font-[Poppins] text-lg leading-relaxed text-black/70">
+          <p className="mt-8 max-w-lg font-[Lora] text-lg leading-relaxed text-black/70">
             Email, DM, Discord, screenshot, bug report. I tuoi utenti ti
             scrivono ovunque e finisci per costruire le cose sbagliate.
           </p>
         </div>
 
         <div className="rounded-[40px] bg-[#111111] p-10 text-white">
-          <h2 className="font-[Lora] text-6xl leading-[1] tracking-[-0.04em]">
+          <h2 className="font-[Poppins] text-6xl leading-[1.08] font-light tracking-[-0.04em]">
             Un unico posto.
             <br />
-            Decisioni settimanali.
+            Decisioni chiare.
           </h2>
 
-          <p className="mt-8 font-[Poppins] text-lg leading-relaxed text-white/70">
+          <p className="mt-8 font-[Lora] text-lg leading-relaxed text-white/70">
             Centralizza tutto, raggruppa i pattern e ricevi ogni settimana le
             priorità più importanti da affrontare.
           </p>

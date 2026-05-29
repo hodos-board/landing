@@ -11,7 +11,7 @@ export default function HeroSection() {
           <div>
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#6F3BFF]/20 bg-[#6F3BFF]/5 px-4 py-2">
               <CircleDot className="h-3 w-3 animate-pulse fill-[#6F3BFF] text-[#6F3BFF]" />
-              <span className="font-[Poppins] text-xs font-semibold tracking-[0.06em] text-[#6F3BFF] uppercase">
+              <span className="font-[Poppins] text-xs font-medium tracking-[0.06em] text-[#6F3BFF] uppercase">
                 Feedback per builder indipendenti
               </span>
             </div>
@@ -55,10 +55,8 @@ export default function HeroSection() {
               </div>
 
               <div>
-                <p className="font-[Poppins] font-medium">
-                  Usato da 1.200+ builder
-                </p>
-                <p className="font-[Poppins] text-sm text-black/60">
+                <p className="font-[Poppins] ">Usato da 1.200+ builder</p>
+                <p className="font-[Lora] text-sm text-black/60">
                   in tutto il mondo
                 </p>
               </div>
