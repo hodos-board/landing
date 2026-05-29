@@ -8,6 +8,8 @@ import {
   ChevronDown,
   ArrowUp,
   Send,
+  Loader2,
+  Loader,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -53,6 +55,9 @@ export default function InteractiveDemo() {
   const [selectedType, setSelectedType] = useState<CommentType>("feedback");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<CommentType>("feedback");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const [comments, setComments] = useState<CommentItem[]>([
     {
@@ -84,9 +89,11 @@ export default function InteractiveDemo() {
     },
   ]);
 
-  const handleSendFeedback = (e: React.FormEvent) => {
+  const handleSendFeedback = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus("loading");
     if (!inputText.trim()) return;
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const randomAuthor =
       RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)];
@@ -104,6 +111,7 @@ export default function InteractiveDemo() {
     };
 
     setComments([newComment, ...comments]);
+    setStatus("success");
     setActiveTab(selectedType);
     setInputText("");
   };
@@ -226,10 +234,19 @@ export default function InteractiveDemo() {
 
             <Button
               type="submit"
-              className="group flex items-center gap-2 rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white px-5"
+              className="group rounded-2xl bg-[#6F3BFF] font-poppins hover:bg-[#5a2be0] text-white px-5"
             >
-              <span>Invia</span>
-              <Send className="h-4 w-4" />
+              {status === "loading" ? (
+                <span className="flex items-center gap-2 ">
+                  Invio...
+                  <Loader2 className="h-4 w-4 animate-spin text-white" />
+                </span>
+              ) : (
+                <span className="flex items-center gap-2 ">
+                  Invia
+                  <Send className="h-4 w-4" />
+                </span>
+              )}
             </Button>
           </div>
         </form>
