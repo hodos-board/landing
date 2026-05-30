@@ -9,12 +9,10 @@ import {
   ArrowUp,
   Send,
   Loader2,
-  Loader,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { TextShimmer } from "@/components/motion-primitives/text-shimmer";
 import { TextShimmerWave } from "./motion-primitives/text-shimmer-wave";
 import { TextMorph } from "torph/react";
 
@@ -333,9 +331,9 @@ export default function InteractiveDemo() {
                       active:scale-95 active:bg-[#6F3BFF]/5 group"
                   >
                     <ArrowUp className="h-4 w-4 shrink-0 transition-transform duration-200 " />
-                    <span className="font-poppins text-xs tabular-nums leading-none">
+                    <TextMorph className="font-poppins text-xs tabular-nums leading-none">
                       {comment.likes}
-                    </span>
+                    </TextMorph>
                   </button>
                 </div>
               ))
