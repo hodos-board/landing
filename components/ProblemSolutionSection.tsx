@@ -48,7 +48,7 @@ export default function ProblemSolutionSection() {
 
         {/* COLONNA DESTRA: PLACEHOLDER IMMAGINE DI DESIGN STYLE */}
         <img
-          src="/shouting_man.jpg"
+          src="/landing/shouting_man.jpg"
           className="lg:col-span-6 w-auto aspect-[4/3] rounded-3xl lg:aspect-square relative group"
         />
       </div>
