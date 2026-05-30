@@ -1,2 +1,2 @@
-:HL["https://hodos-board.github.io/landing/_next/static/chunks/16uzq~usntia0.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"HksCiYHx6he3N0wj2AnZC"}
+:HL["/landing/_next/static/chunks/16uzq~usntia0.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"0f7pEFpPPRB8DWUPCUNBB"}
